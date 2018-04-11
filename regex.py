@@ -39,9 +39,20 @@ year_counts = dict((year, matches.count(year)) for year in set(matches))
 
 
 # Matching time
-'\b([01]?[0-9]|2[0-3]):([0-5]\d)\b'
+r'\b([01]?[0-9]|2[0-3]):([0-5]\d)\b'
 
 
 # Matching date
 # DAY/MONTH/Year
-'\b(0?[1-9]|[12]\d|3[01])([\/\-])(1[0-2]|0?[1-9])\2([19]|[20]\d{2})\b'
+r'\b(0?[1-9]|[12]\d|3[01])([\/\-])(1[0-2]|0?[1-9])\2([19]|[20]\d{2})\b'
+
+# ^ - Start of input
+# [^@\s] - Match any character except for @ and whitespace \s
+# + - 1+ times
+# @ - Match the '@' symbol
+# [^@\s]+ - Match any character except for @ and whitespace), 1+ times
+# \. - Match the '.' character.
+# \w{2,6} - Match any word character (letter, digit, or underscore), 2-6 times
+# $ - End of input
+r'^([^@\s])+@[^@\s]+\.\w{2,6}$'
+
