@@ -40,3 +40,8 @@ year_counts = dict((year, matches.count(year)) for year in set(matches))
 
 # Matching time
 '\b([01]?[0-9]|2[0-3]):([0-5]\d)\b'
+
+
+# Matching date
+# DAY/MONTH/Year
+'\b(0?[1-9]|[12]\d|3[01])([\/\-])(1[0-2]|0?[1-9])\2([19]|[20]\d{2})\b'
