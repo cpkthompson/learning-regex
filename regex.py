@@ -56,3 +56,10 @@ r'\b(0?[1-9]|[12]\d|3[01])([\/\-])(1[0-2]|0?[1-9])\2([19]|[20]\d{2})\b'
 # $ - End of input
 r'^([^@\s])+@[^@\s]+\.\w{2,6}$'
 
+# Extras
+# \/ - Match / symbol (we have escape the / character)
+# \*+ - Match one or more * symbols (again, we have to escape the * character with \).
+# (.*) - Match any character (besides a newline \n), any number of times
+# \*+ - Match one or more * characters
+# \/ - Match closing / symbol.
+r'(\/\*+)(.*)(\*+\/)'
